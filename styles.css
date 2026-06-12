@@ -5,31 +5,43 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 50%, #0f3d1f 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
-    padding: 20px;
+    padding: 10px;
 }
 
 .container {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 20px;
-    padding: 40px;
-    max-width: 800px;
+    padding: clamp(20px, 5%, 40px);
+    max-width: 900px;
     width: 100%;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.18);
+    animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h1 {
     text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 40px;
+    font-size: clamp(1.8em, 8vw, 2.8em);
+    margin-bottom: clamp(20px, 5%, 40px);
     color: #4ade80;
     text-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
     font-weight: bold;
@@ -37,8 +49,8 @@ h1 {
 
 h2 {
     text-align: center;
-    font-size: 1.5em;
-    margin: 30px 0 20px;
+    font-size: clamp(1.2em, 5vw, 1.6em);
+    margin: clamp(20px, 4%, 30px) 0 clamp(15px, 3%, 20px);
     color: #86efac;
 }
 
@@ -46,12 +58,14 @@ h2 {
 .clock-section {
     display: flex;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: clamp(25px, 5%, 40px);
 }
 
 .analog-clock {
-    width: 250px;
-    height: 250px;
+    width: clamp(180px, 50vw, 280px);
+    height: clamp(180px, 50vw, 280px);
+    max-width: 280px;
+    max-height: 280px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,7 +76,7 @@ h2 {
     height: 100%;
     border-radius: 50%;
     background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), rgba(45, 90, 61, 0.2));
-    border: 4px solid #4ade80;
+    border: clamp(3px, 2vw, 4px) solid #4ade80;
     position: relative;
     box-shadow: 0 0 20px rgba(74, 222, 128, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.5);
 }
@@ -70,22 +84,22 @@ h2 {
 .clock-face::before {
     content: '12';
     position: absolute;
-    top: 10px;
+    top: clamp(8px, 2vw, 12px);
     left: 50%;
     transform: translateX(-50%);
     font-weight: bold;
     color: #4ade80;
-    font-size: 14px;
+    font-size: clamp(12px, 3vw, 16px);
 }
 
 .clock-face::after {
     content: '';
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: clamp(6px, 1.5vw, 10px);
+    height: clamp(6px, 1.5vw, 10px);
     background: #4ade80;
     border-radius: 50%;
-    top: 12px;
+    top: clamp(10px, 2vw, 14px);
 }
 
 .hand {
@@ -98,32 +112,32 @@ h2 {
 }
 
 .hour-hand {
-    width: 6px;
-    height: 70px;
-    margin-left: -3px;
+    width: clamp(4px, 1vw, 6px);
+    height: clamp(50px, 12vw, 70px);
+    margin-left: calc(clamp(4px, 1vw, 6px) / -2);
     background: #4ade80;
     box-shadow: 0 0 5px rgba(74, 222, 128, 0.8);
 }
 
 .minute-hand {
-    width: 4px;
-    height: 100px;
-    margin-left: -2px;
+    width: clamp(3px, 0.8vw, 4px);
+    height: clamp(70px, 16vw, 100px);
+    margin-left: calc(clamp(3px, 0.8vw, 4px) / -2);
     background: #86efac;
     box-shadow: 0 0 3px rgba(134, 239, 172, 0.8);
 }
 
 .second-hand {
     width: 2px;
-    height: 110px;
+    height: clamp(80px, 18vw, 110px);
     margin-left: -1px;
     background: #fbbf24;
     box-shadow: 0 0 3px rgba(251, 191, 36, 0.8);
 }
 
 .center-dot {
-    width: 12px;
-    height: 12px;
+    width: clamp(10px, 2.5vw, 14px);
+    height: clamp(10px, 2.5vw, 14px);
     background: #4ade80;
     border-radius: 50%;
     position: absolute;
@@ -136,16 +150,16 @@ h2 {
 
 /* Digital Section */
 .digital-section {
-    margin: 30px 0;
+    margin: clamp(20px, 4%, 30px) 0;
     text-align: center;
 }
 
 .time-display {
-    margin-bottom: 30px;
+    margin-bottom: clamp(20px, 4%, 30px);
 }
 
 .time-label {
-    font-size: 0.9em;
+    font-size: clamp(0.8em, 2vw, 1em);
     color: #86efac;
     margin-bottom: 8px;
     text-transform: uppercase;
@@ -153,23 +167,29 @@ h2 {
 }
 
 #digital-time {
-    font-size: 3.5em;
+    font-size: clamp(2.5em, 8vw, 4em);
     font-weight: bold;
     color: #4ade80;
     font-family: 'Courier New', monospace;
     text-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
     letter-spacing: 2px;
+    word-break: break-word;
 }
 
 .date-display {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: clamp(12px, 3%, 20px);
+    margin-top: clamp(20px, 4%, 30px);
+}
+
+.gregorian-date,
+.islamic-date {
+    min-width: 0;
 }
 
 .date-label {
-    font-size: 0.85em;
+    font-size: clamp(0.75em, 2vw, 0.9em);
     color: #86efac;
     margin-bottom: 8px;
     text-transform: uppercase;
@@ -177,19 +197,21 @@ h2 {
 }
 
 .date {
-    font-size: 1.3em;
+    font-size: clamp(1em, 2.5vw, 1.4em);
     color: #fbbf24;
     font-weight: bold;
-    padding: 12px;
+    padding: clamp(10px, 2%, 15px);
     background: rgba(74, 222, 128, 0.1);
     border-radius: 8px;
     border-left: 3px solid #4ade80;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Prayer Times */
 .prayer-times {
-    margin: 40px 0;
-    padding: 20px;
+    margin: clamp(25px, 5%, 40px) 0;
+    padding: clamp(15px, 3%, 20px);
     background: rgba(74, 222, 128, 0.05);
     border-radius: 10px;
     border: 1px solid rgba(74, 222, 128, 0.2);
@@ -197,18 +219,19 @@ h2 {
 
 .prayer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(80px, 15vw, 110px), 1fr));
+    gap: clamp(10px, 2%, 15px);
+    margin-top: clamp(15px, 3%, 20px);
 }
 
 .prayer-item {
     background: rgba(45, 90, 61, 0.3);
-    padding: 15px;
+    padding: clamp(12px, 3%, 16px);
     border-radius: 10px;
     border: 1px solid rgba(74, 222, 128, 0.3);
     text-align: center;
     transition: all 0.3s ease;
+    min-width: 0;
 }
 
 .prayer-item:hover {
@@ -218,15 +241,16 @@ h2 {
 }
 
 .prayer-name {
-    font-size: 0.9em;
+    font-size: clamp(0.75em, 2vw, 0.95em);
     color: #86efac;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    word-break: break-word;
 }
 
 .prayer-time {
-    font-size: 1.4em;
+    font-size: clamp(1.2em, 3vw, 1.5em);
     color: #4ade80;
     font-weight: bold;
     font-family: 'Courier New', monospace;
@@ -234,8 +258,8 @@ h2 {
 
 /* Info Section */
 .info {
-    margin-top: 40px;
-    padding: 20px;
+    margin-top: clamp(25px, 5%, 40px);
+    padding: clamp(15px, 3%, 20px);
     background: rgba(45, 90, 61, 0.2);
     border-radius: 10px;
     border: 1px solid rgba(74, 222, 128, 0.2);
@@ -243,48 +267,178 @@ h2 {
 }
 
 .info p {
-    font-size: 1.1em;
+    font-size: clamp(0.95em, 2.5vw, 1.15em);
     color: #86efac;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .months-info {
-    font-size: 0.95em;
+    font-size: clamp(0.85em, 2vw, 1em);
     color: #fbbf24;
     line-height: 1.8;
+    word-break: break-word;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2em;
+/* Ultra Small Devices (< 320px) */
+@media (max-width: 319px) {
+    .container {
+        padding: 15px;
     }
 
-    h2 {
-        font-size: 1.2em;
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    .prayer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    }
+}
+
+/* Small Devices (320px - 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+
+    .container {
+        border-radius: 15px;
+        padding: 15px;
+    }
+
+    h1 {
+        margin-bottom: 15px;
+    }
+
+    .clock-section {
+        margin-bottom: 20px;
     }
 
     .analog-clock {
-        width: 200px;
-        height: 200px;
-    }
-
-    #digital-time {
-        font-size: 2.5em;
+        width: clamp(150px, 45vw, 180px);
+        height: clamp(150px, 45vw, 180px);
     }
 
     .date-display {
         grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .prayer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+        gap: 10px;
+    }
+
+    .prayer-item {
+        padding: 10px;
+    }
+}
+
+/* Medium Devices (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        max-width: 95vw;
     }
 
     .prayer-grid {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
 
+    .date-display {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+/* Large Devices (769px+) */
+@media (min-width: 769px) {
     .container {
-        padding: 25px;
+        padding: 40px;
+    }
+
+    .prayer-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .date-display {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Touch Device Optimization */
+@media (hover: none) and (pointer: coarse) {
+    .prayer-item:active {
+        background: rgba(74, 222, 128, 0.1);
+        border-color: rgba(74, 222, 128, 0.6);
+        transform: translateY(-2px);
+    }
+}
+
+/* High Resolution Displays */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 900px;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #0d3a1a 0%, #1a4d2e 50%, #051f0f 100%);
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .hand {
+        animation: none;
+    }
+
+    .container {
+        animation: none;
+    }
+
+    .prayer-item {
+        transition: none;
+    }
+}
+
+/* Landscape Orientation */
+@media (orientation: landscape) and (max-height: 600px) {
+    .container {
+        padding: clamp(15px, 2%, 25px);
+    }
+
+    h1 {
+        margin-bottom: 15px;
+        font-size: clamp(1.5em, 4vh, 2em);
+    }
+
+    .analog-clock {
+        width: clamp(120px, 25vh, 180px);
+        height: clamp(120px, 25vh, 180px);
+    }
+
+    #digital-time {
+        font-size: clamp(1.8em, 4vh, 2.5em);
+    }
+
+    .date-display {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    .prayer-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+    }
+
+    .prayer-item {
+        padding: 8px;
+    }
+
+    .prayer-time {
+        font-size: clamp(1em, 2.5vh, 1.2em);
     }
 }
 
