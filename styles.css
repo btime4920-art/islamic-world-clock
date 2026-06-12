@@ -54,6 +54,126 @@ h2 {
     color: #86efac;
 }
 
+/* Settings Panel */
+.settings-panel {
+    margin-bottom: clamp(15px, 3%, 20px);
+    background: rgba(45, 90, 61, 0.2);
+    padding: clamp(10px, 2%, 15px);
+    border-radius: 10px;
+    border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.settings-toggle {
+    width: 100%;
+    padding: clamp(10px, 2%, 12px);
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.2), rgba(45, 90, 61, 0.3));
+    color: #4ade80;
+    border: 1px solid rgba(74, 222, 128, 0.4);
+    border-radius: 8px;
+    font-size: clamp(0.9em, 2.5vw, 1.1em);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.settings-toggle:hover {
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.3), rgba(45, 90, 61, 0.4));
+    border-color: rgba(74, 222, 128, 0.6);
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
+}
+
+.settings-content {
+    margin-top: 15px;
+    padding: clamp(10px, 2%, 15px);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.settings-group {
+    margin-bottom: clamp(12px, 2%, 15px);
+}
+
+.settings-group label {
+    display: block;
+    font-size: clamp(0.85em, 2vw, 0.95em);
+    color: #86efac;
+    margin-bottom: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.settings-group select,
+.settings-group input {
+    width: 100%;
+    padding: clamp(8px, 1.5%, 10px);
+    background: rgba(0, 0, 0, 0.3);
+    color: #4ade80;
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    border-radius: 6px;
+    font-size: clamp(0.9em, 2vw, 1em);
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.settings-group select:hover,
+.settings-group input:hover {
+    border-color: rgba(74, 222, 128, 0.6);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.settings-group select:focus,
+.settings-group input:focus {
+    outline: none;
+    border-color: #4ade80;
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.3);
+}
+
+.apply-btn {
+    width: 100%;
+    padding: clamp(10px, 2%, 12px);
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: clamp(0.9em, 2vw, 1.05em);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
+}
+
+.apply-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(74, 222, 128, 0.5);
+}
+
+.apply-btn:active {
+    transform: translateY(0);
+}
+
+/* Location Display */
+.location-display {
+    text-align: center;
+    margin-bottom: clamp(15px, 3%, 20px);
+    padding: clamp(10px, 2%, 12px);
+    background: rgba(74, 222, 128, 0.05);
+    border-radius: 8px;
+    border-left: 3px solid #4ade80;
+}
+
+#locationText {
+    font-size: clamp(0.85em, 2.5vw, 0.95em);
+    color: #86efac;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
 /* Analog Clock */
 .clock-section {
     display: flex;
@@ -217,6 +337,17 @@ h2 {
     border: 1px solid rgba(74, 222, 128, 0.2);
 }
 
+.prayer-status {
+    text-align: center;
+    padding: 12px;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: 6px;
+    color: #fbbf24;
+    font-size: clamp(0.85em, 2vw, 0.95em);
+    margin-bottom: 15px;
+}
+
 .prayer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(clamp(80px, 15vw, 110px), 1fr));
@@ -281,18 +412,35 @@ h2 {
     word-break: break-word;
 }
 
+/* API Info */
+.api-info {
+    text-align: center;
+    margin-top: clamp(20px, 4%, 30px);
+    padding: clamp(10px, 2%, 12px);
+    background: rgba(74, 222, 128, 0.05);
+    border-radius: 8px;
+    border-top: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.api-info p {
+    font-size: clamp(0.75em, 2vw, 0.85em);
+    color: #86efac;
+    opacity: 0.8;
+    margin: 0;
+}
+
 /* Ultra Small Devices (< 320px) */
 @media (max-width: 319px) {
     .container {
-        padding: 15px;
+        padding: 12px;
     }
 
     h1 {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .prayer-grid {
-        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
     }
 }
 
@@ -304,15 +452,19 @@ h2 {
 
     .container {
         border-radius: 15px;
-        padding: 15px;
+        padding: 12px;
     }
 
     h1 {
-        margin-bottom: 15px;
+        margin-bottom: 12px;
+    }
+
+    .settings-panel {
+        margin-bottom: 12px;
     }
 
     .clock-section {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .analog-clock {
@@ -322,16 +474,16 @@ h2 {
 
     .date-display {
         grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .prayer-grid {
-        grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
         gap: 10px;
     }
 
+    .prayer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+        gap: 8px;
+    }
+
     .prayer-item {
-        padding: 10px;
+        padding: 8px;
     }
 }
 
@@ -342,11 +494,11 @@ h2 {
     }
 
     .prayer-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
     }
 
     .date-display {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
     }
 }
 
@@ -371,6 +523,14 @@ h2 {
         background: rgba(74, 222, 128, 0.1);
         border-color: rgba(74, 222, 128, 0.6);
         transform: translateY(-2px);
+    }
+
+    .settings-toggle:active {
+        background: linear-gradient(135deg, rgba(74, 222, 128, 0.3), rgba(45, 90, 61, 0.4));
+    }
+
+    .apply-btn:active {
+        transform: translateY(-1px);
     }
 }
 
@@ -401,44 +561,61 @@ h2 {
     .prayer-item {
         transition: none;
     }
+
+    .settings-toggle {
+        transition: none;
+    }
+
+    .apply-btn {
+        transition: none;
+    }
 }
 
 /* Landscape Orientation */
 @media (orientation: landscape) and (max-height: 600px) {
     .container {
-        padding: clamp(15px, 2%, 25px);
+        padding: clamp(12px, 1.5%, 20px);
+        max-height: 95vh;
+        overflow-y: auto;
     }
 
     h1 {
-        margin-bottom: 15px;
-        font-size: clamp(1.5em, 4vh, 2em);
+        margin-bottom: 10px;
+        font-size: clamp(1.5em, 3vh, 1.8em);
     }
 
     .analog-clock {
-        width: clamp(120px, 25vh, 180px);
-        height: clamp(120px, 25vh, 180px);
+        width: clamp(100px, 20vh, 150px);
+        height: clamp(100px, 20vh, 150px);
     }
 
     #digital-time {
-        font-size: clamp(1.8em, 4vh, 2.5em);
+        font-size: clamp(1.5em, 3vh, 2em);
     }
 
     .date-display {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 8px;
+        margin-top: 10px;
     }
 
     .prayer-grid {
         grid-template-columns: repeat(5, 1fr);
-        gap: 8px;
+        gap: 6px;
+        margin-top: 10px;
     }
 
     .prayer-item {
-        padding: 8px;
+        padding: 6px;
     }
 
     .prayer-time {
-        font-size: clamp(1em, 2.5vh, 1.2em);
+        font-size: clamp(0.9em, 2.5vh, 1.1em);
+    }
+
+    .info {
+        margin-top: 15px;
+        padding: 12px;
     }
 }
 
