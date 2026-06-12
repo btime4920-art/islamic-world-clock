@@ -8,7 +8,80 @@
 </head>
 <body>
     <div class="container">
-        <h1>Islamic World Clock</h1>
+        <h1>🌙 Islamic World Clock</h1>
+        
+        <!-- User Settings Panel -->
+        <div class="settings-panel">
+            <button class="settings-toggle" id="settingsToggle">⚙️ Settings</button>
+            
+            <div class="settings-content" id="settingsContent" style="display: none;">
+                <div class="settings-group">
+                    <label for="countrySelect">Select Country/Region:</label>
+                    <select id="countrySelect">
+                        <option value="">-- Auto Detect --</option>
+                        <option value="US">United States</option>
+                        <option value="SA">Saudi Arabia</option>
+                        <option value="AE">United Arab Emirates</option>
+                        <option value="EG">Egypt</option>
+                        <option value="PK">Pakistan</option>
+                        <option value="BD">Bangladesh</option>
+                        <option value="ID">Indonesia</option>
+                        <option value="MY">Malaysia</option>
+                        <option value="GB">United Kingdom</option>
+                        <option value="CA">Canada</option>
+                        <option value="AU">Australia</option>
+                        <option value="TR">Turkey</option>
+                        <option value="IR">Iran</option>
+                        <option value="JO">Jordan</option>
+                        <option value="LB">Lebanon</option>
+                        <option value="SY">Syria</option>
+                        <option value="IQ">Iraq</option>
+                        <option value="KW">Kuwait</option>
+                        <option value="QA">Qatar</option>
+                        <option value="BH">Bahrain</option>
+                        <option value="OM">Oman</option>
+                        <option value="YE">Yemen</option>
+                        <option value="FR">France</option>
+                        <option value="DE">Germany</option>
+                        <option value="IT">Italy</option>
+                        <option value="ES">Spain</option>
+                    </select>
+                </div>
+
+                <div class="settings-group">
+                    <label for="timezoneSelect">Select Timezone:</label>
+                    <select id="timezoneSelect">
+                        <option value="">-- Auto Detect --</option>
+                        <option value="America/New_York">Eastern Time (ET)</option>
+                        <option value="America/Chicago">Central Time (CT)</option>
+                        <option value="America/Denver">Mountain Time (MT)</option>
+                        <option value="America/Los_Angeles">Pacific Time (PT)</option>
+                        <option value="Europe/London">GMT/UTC</option>
+                        <option value="Europe/Paris">Central European Time (CET)</option>
+                        <option value="Europe/Moscow">Moscow Standard Time</option>
+                        <option value="Asia/Dubai">Gulf Standard Time</option>
+                        <option value="Asia/Kolkata">India Standard Time</option>
+                        <option value="Asia/Bangkok">Southeast Asia Time</option>
+                        <option value="Asia/Shanghai">China Standard Time</option>
+                        <option value="Asia/Tokyo">Japan Standard Time</option>
+                        <option value="Australia/Sydney">Australian Eastern Time</option>
+                        <option value="Pacific/Auckland">New Zealand Standard Time</option>
+                    </select>
+                </div>
+
+                <div class="settings-group">
+                    <label for="cityInput">City (Optional):</label>
+                    <input type="text" id="cityInput" placeholder="Enter your city name">
+                </div>
+
+                <button class="apply-btn" id="applySettings">Apply Settings</button>
+            </div>
+        </div>
+
+        <!-- Location Display -->
+        <div class="location-display" id="locationDisplay">
+            <span id="locationText">Loading your location...</span>
+        </div>
         
         <div class="clock-section">
             <div class="analog-clock">
@@ -41,34 +114,39 @@
         </div>
 
         <div class="prayer-times">
-            <h2>Prayer Times (Approximate)</h2>
+            <h2>Prayer Times</h2>
+            <div class="prayer-status" id="prayerStatus">Fetching prayer times for your location...</div>
             <div class="prayer-grid">
                 <div class="prayer-item">
                     <div class="prayer-name">Fajr</div>
-                    <div class="prayer-time" id="fajr">05:30</div>
+                    <div class="prayer-time" id="fajr">--:--</div>
                 </div>
                 <div class="prayer-item">
                     <div class="prayer-name">Dhuhr</div>
-                    <div class="prayer-time" id="dhuhr">12:30</div>
+                    <div class="prayer-time" id="dhuhr">--:--</div>
                 </div>
                 <div class="prayer-item">
                     <div class="prayer-name">Asr</div>
-                    <div class="prayer-time" id="asr">15:45</div>
+                    <div class="prayer-time" id="asr">--:--</div>
                 </div>
                 <div class="prayer-item">
                     <div class="prayer-name">Maghrib</div>
-                    <div class="prayer-time" id="maghrib">18:45</div>
+                    <div class="prayer-time" id="maghrib">--:--</div>
                 </div>
                 <div class="prayer-item">
                     <div class="prayer-name">Isha</div>
-                    <div class="prayer-time" id="isha">20:15</div>
+                    <div class="prayer-time" id="isha">--:--</div>
                 </div>
             </div>
         </div>
 
         <div class="info">
             <p>Islamic Calendar Information</p>
-            <div class="months-info" id="months-info"></div>
+            <div class="months-info" id="months-info">Loading...</div>
+        </div>
+
+        <div class="api-info">
+            <p>📡 Powered by accurate prayer time APIs & Hijri calendar data</p>
         </div>
     </div>
 
