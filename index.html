@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic World Clock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Islamic World Clock</h1>
+        
+        <div class="clock-section">
+            <div class="analog-clock">
+                <div class="clock-face">
+                    <div class="hand hour-hand"></div>
+                    <div class="hand minute-hand"></div>
+                    <div class="hand second-hand"></div>
+                    <div class="center-dot"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="digital-section">
+            <div class="time-display">
+                <div class="time-label">Current Time</div>
+                <div class="time" id="digital-time">00:00:00</div>
+            </div>
+
+            <div class="date-display">
+                <div class="gregorian-date">
+                    <div class="date-label">Gregorian Date</div>
+                    <div class="date" id="gregorian-date">Loading...</div>
+                </div>
+                
+                <div class="islamic-date">
+                    <div class="date-label">Islamic (Hijri) Date</div>
+                    <div class="date" id="islamic-date">Loading...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="prayer-times">
+            <h2>Prayer Times (Approximate)</h2>
+            <div class="prayer-grid">
+                <div class="prayer-item">
+                    <div class="prayer-name">Fajr</div>
+                    <div class="prayer-time" id="fajr">05:30</div>
+                </div>
+                <div class="prayer-item">
+                    <div class="prayer-name">Dhuhr</div>
+                    <div class="prayer-time" id="dhuhr">12:30</div>
+                </div>
+                <div class="prayer-item">
+                    <div class="prayer-name">Asr</div>
+                    <div class="prayer-time" id="asr">15:45</div>
+                </div>
+                <div class="prayer-item">
+                    <div class="prayer-name">Maghrib</div>
+                    <div class="prayer-time" id="maghrib">18:45</div>
+                </div>
+                <div class="prayer-item">
+                    <div class="prayer-name">Isha</div>
+                    <div class="prayer-time" id="isha">20:15</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info">
+            <p>Islamic Calendar Information</p>
+            <div class="months-info" id="months-info"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
